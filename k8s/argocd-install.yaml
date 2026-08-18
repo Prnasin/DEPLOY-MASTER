@@ -1,0 +1,13 @@
+# To install ArgoCD on Minikube, run these commands:
+#
+# 1. Create the namespace:
+# kubectl create namespace argocd
+#
+# 2. Apply the official ArgoCD manifest:
+# kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+#
+# 3. Access the ArgoCD UI:
+# kubectl port-forward svc/argocd-server -n argocd 8080:443
+#
+# 4. Get the initial admin password:
+# kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | % { [System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String($_)) }
